@@ -1,0 +1,172 @@
+@font-face {
+    font-family: 'Overpass-Light';    
+    src: url('/files/fonts/LatoLight.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    padding:0;
+    margin:0;
+}
+div{
+   
+}
+div#pay_form{
+    font-family: Overpass-Light;
+    color: #847D7D;
+    font-weight: bold;
+    border:2px solid #E6E0E0;
+    border-radius:7px;
+    margin:20px auto;
+    width:350px;
+  
+}
+div#form_elements{
+    /*border: 1px dotted grey;*/
+    width: 75%;
+    height: 450px;
+    margin: 0 auto;
+}
+div#form_head{
+    border-bottom:2px solid #E6E0E0;
+    background-color:#EEF2F4;
+    width:auto;
+    height:100px;
+}
+div#form_head h2{
+        color: #8C8C9C;
+   text-align: center;
+   padding-top: 10%;
+}
+div#icons{
+    padding-top: 20px;
+    text-align: center;
+    width:auto;
+    height: 64px;
+}
+.card_icons{
+    height: 50px;
+}
+
+input[type='text']{
+    color: #464242;
+        margin-top: 5px;
+        font-size: 18px;
+    width: 95%;
+    padding-left: 10px;
+    float: left;
+    border-radius: 5px;
+    border: 1px solid #E6E0E0;
+    height: 35px;
+}
+input[name='disabled_text']{
+        width: 65%;
+    font-size: 24px;
+    border: 0;
+    color: #469C2B;
+
+}
+input[type='text']:focus{
+    background-color:#EEF9F9;
+}
+input[name='payment_amount']{
+  width: 57%; 
+}
+input[name='expiry_date']{
+  width: 43%; 
+}
+input[name='security_code']{
+  width: 43%; 
+  float:right;
+}
+select[name='select_currency']{
+           float: right;
+    margin-top: 5px;
+    font-size: 14px;
+    width: 95%;
+    padding-left: 5px;   
+    border-radius: 5px;
+    border: 1px solid #E6E0E0;
+    height: 37px;
+    width: 34%;
+
+}
+input[name='card_number']{
+/*    background-image: url('/img/visa.png');*/
+    background-repeat: no-repeat;
+    background-size: 46px;
+    background-position: 99% 50%;
+}
+input[type='button'] {
+        margin-top: 5px;
+    background-color: white;
+    height: 37px;
+    width: 22%;
+    float: right;
+    font-family: sans-serif;
+    font-size: 15px;
+    border: 1px solid #E6E0E0;
+    border-radius: 3px;
+    
+}
+input[type='button']:hover {
+    cursor: pointer;
+    
+}
+input[type='submit'] {
+    color:white;
+       margin-top: 20px;
+    background-color: #A2ECEA;
+    height: 60px;
+    width: 100%;
+    font-family: sans-serif;
+    font-size: 19px;
+    border: 1px solid #E6E0E0;
+    border-radius: 5px;
+    
+    background-image: url('/img/lock.png');
+    background-repeat: no-repeat;
+        background-size: 32px;
+    background-position: 3% 35%;
+}
+input[type='submit']:hover {
+    cursor: pointer;
+    
+}
+
+.element_line{
+    width: 100%;
+    height: 70px;
+}
+.element_line span{
+        float: left;
+}
+.element_line span.right{
+        float: right;
+}
+
+.code_img{
+        width: 100%;
+    padding-top: 10px;
+}
+.form_heigth1{
+     height:585px; 
+}
+.form_heigth2{
+    height:650px; 
+}
+.quest_img{
+        position: relative;
+    top: -30px;
+    left: 238px;
+    width: 22px;
+}
+.quest_img:hover{
+     cursor: pointer;
+}
+input.ng-invalid.ng-dirty  {
+        background-color: rgb(243, 210, 210);
+}
+.ng-valid{
+    background-color: white;
+}

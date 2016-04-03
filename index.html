@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html ng-app="pay_validation">
+    <head>
+        <title>Тестовое задание</title>
+        <meta charset="UTF-8">   
+        <link href="/css/style.css" rel="stylesheet"/>
+        <script src="js/angular.js" type="text/javascript"></script>
+        <script src="js/pay_validation.js" type="text/javascript"></script>
+    </head>
+    <body ng-controller="mainCtrl">
+ 
+        <div id="pay_form" ng-class="formHeight">
+            <div id="form_head">
+                <h2>Оплата по счету</h2>              
+            </div>
+            <div id="icons">
+                <img class="card_icons" src="img/visa.png" alt="visa"/>
+                <img class="card_icons" src="img/master_card.png"  alt="master_card"/>
+                <img class="card_icons" src="img/american_express.png"  alt="american_express"/>
+                <img class="card_icons" src="img/discover.png"  alt="discover"/>
+                <img class="card_icons" src="img/diners_club.png"  alt="diners_club"/>
+               
+            </div>
+            <div id='form_elements'>
+                <form ng-switch on="payment_amount_access"  name="pay_form" method="post" action='#'>
+                    
+                    <div ng-switch-when="false" class="element_line" >
+                    <label>
+                        <span>Сумма оплаты</span>
+                        <input name = 'disabled_text' readonly type="text" value="{{payment_amount}}"/>
+                        <input  type='button' name='edit' value='Edit' ng-click="paymentAmountClickHandler()"/>
+                    </label>
+                    </div>
+                    
+                    <div ng-switch-when="true"  class="element_line" >
+                    <label>
+                        <span>Сумма оплаты</span>
+                        <input required  ng-model="$parent.payment_amount"  ng-change='paymentAmountChangeHandler()'  type='text' name="payment_amount"/>
+                        <select ng-model="$parent.selected_currency" ng-options="item.name+','+item.sign for item in currency track by item.value"  name='select_currency' ></select>
+                                      
+                    </label>
+                    </div>
+                    
+                    <div class="element_line">
+                    <label>
+                        <span>Имя и фамилия на карте</span>
+                        <input required ng-model="name_on_card" ng-change='nameOnCardNumberChangeHandler()' ng-focus="paymentAmountBlurHandler()"    type='text' name="name_on_card" placeholder="IVAN IVANOV" />                        
+                     
+                    </label>
+                    </div>
+                    
+                    <div class="element_line">
+                    <label>
+                        <span>Номер карты</span>
+                        <input required    ng-model='card_number' ng-change='cardNumberChangeHandler()' ng-focus="paymentAmountBlurHandler()"  type='text' name="card_number" style="{{imgSrc}}"  placeholder="xxxx-xxxx-xxxx-xxxx"/>                        
+                
+                    </label>
+                    </div>
+                    
+                    <div class="element_line">
+                    <label>
+                        <span>Срок действия</span><span class="right">Код безопасности</span>
+                        
+                        <input ng-model="expire_date" required ng-focus="paymentAmountBlurHandler()" ng-change="expireDateChangeHandler()"  type='text' name="expiry_date" placeholder="MM/YY"/>   
+                        
+                        <input ng-model="security_code" ng-change="securityCodeNumberChangeHandler()" required ng-focus="paymentAmountBlurHandler()"  type='text' name="security_code"  placeholder="xxx(x)"/> 
+                    
+                    
+                    </label>
+                        <img class='quest_img' src='/img/quest.png' ng-click="showExample()"/>
+                    </div>
+                    
+                    
+                        
+                    <div class="element_line">
+                        <img ng-show="showedExample" class = "code_img" src="img/example.jpg"/>
+                        <input    type='submit' name="submit" value="Оплатить {{selected_currency.sign}} {{payment_amount}}"/>                    
+                    
+                    </div>
+            
+                </form>
+            </div>    
+        </div>
+    </body>
+</html>
